@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
@@ -41,17 +42,16 @@ public class PhoneBookTest {
     void testAddContactToGroup() {
         //arrange
         String s = "Family";
-        Contact contact = new Contact("Vasya", "978-498-15-26");
+        Contact contact = new Contact("Иван", "89776589653");
         Map map;
         sut.addGroup(s);
-
 
         //act
         sut.addContactToGroup(s, contact);
         map = sut.getListHashMap();
 
         //assert
-        Assertions.assertNotNull(map.get(s));
+        Assertions.assertFalse(map.isEmpty());
 
     }
 
